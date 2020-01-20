@@ -64,7 +64,9 @@ function watchForm() {
   //console.log("init");
   $('form').submit(event => {
     event.preventDefault();
-    const searchTerm = $('#js-search-term').val();
+    const searchTerm = $('#js-search-term').val().replace(/[ ,]+/g, ",");
+    
+    console.log(searchTerm);
     const maxResults = $('#js-max-results').val();
     getParks(searchTerm, maxResults);
   });
